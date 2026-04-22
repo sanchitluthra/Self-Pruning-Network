@@ -1,3 +1,4 @@
+
 # Self-Pruning Neural Network
 **Sanchit Luthra | 102303486 | Tredence AI Intern Case Study**
 
@@ -35,5 +36,8 @@ Starting the gates at a perfectly neutral `0.0` gives the network an unbiased st
 > **Note:** The **High λ** configuration with the **0.0 initialization** proved to be the best overall model. It successfully severed over 88% of the network's parameters while actually achieving the highest classification accuracy of the entire experiment.
 
 ## 📈 Visual Proof
-*(Histogram showing the distribution of final gate values)*
+### Baseline: Gates Initialized at 1.0
+<img width="720" height="470" alt="Screenshot 2026-04-22 at 10 10 16 PM" src="https://github.com/user-attachments/assets/97770ab4-895b-466b-85ed-851c90a85778" />
+### Optimized: Gates Initialized at 0.0
+<img width="722" height="468" alt="Screenshot 2026-04-22 at 10 09 52 PM" src="https://github.com/user-attachments/assets/e7303393-ae56-4f18-9543-73dc58af50f2" />
 
