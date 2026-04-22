@@ -6,11 +6,11 @@
 Every weight in the network is paired with a learnable **gate score**. Instead of pruning after training, the network learns which connections to cut *during* the training process:
 
 * **Sigmoid Activation:** We apply `sigmoid(gate_score)` to scale the value between 0 and 1.
-  * Gates pushed near **0.0** → The weight is severed (pruned).
+  * Gates pushed near **0.0** → The weight is pruned.
   * Gates pushed near **1.0** → The weight survives.
 * **Custom Sparsity Loss:** `Loss = CrossEntropy + λ ∑(gates)`. The λ (L1 penalty) acts as a constant downward pressure, relentlessly forcing non-essential gates to zero.
-* **Warm-up Phase (Epochs 1-3):** The network trains normally with zero pruning pressure (`λ = 0`). It needs time to learn basic image features before it starts cutting connections.
-* **Dynamic Annealing (Epoch 4+):** The pruning penalty (`λ`) slowly ramps up to the target value. This "boiling frog" approach allows the network to gracefully adapt as its weights are deleted.
+* **Warm-up Phase (Epochs 1-3):** The network trains normally with zero pruning pressure (`λ = 0`). It  learn basic image features before it starts pruning weight.
+* **Dynamic Annealing (Epoch 4+):** The pruning  (`λ`) slowly ramps up to the target value. This  approach allows the network to gracefully adapt as its weights are deleted.
 
 ## 📊 Results & Trade-off Analysis
 The model was trained for 10 epochs. To ensure a thorough evaluation, I conducted an ablation study comparing a positive gate initialization against a neutral gate initialization.
