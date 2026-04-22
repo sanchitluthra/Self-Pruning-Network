@@ -2,6 +2,10 @@
 # Self-Pruning Neural Network
 **Sanchit Luthra | 102303486 | Tredence AI Intern Case Study**
 
+## 🎯 The Problem Statement
+Modern neural networks are highly over-parameterized, leading to excessive memory consumption and computational inefficiency. The objective of this case study is to engineer a feed-forward neural network that dynamically identifies and severs its own non-essential weights *during* the training phase. By forcing the network to autonomously discover a highly sparse architecture, we can drastically reduce the model's footprint without degrading its classification accuracy on the CIFAR-10 dataset.
+
+
 ## 🛠️ My Solution: How the Pruning Works
 Every weight in the network is paired with a learnable **gate score**. Instead of pruning after training, the network learns which connections to cut *during* the training process:
 
